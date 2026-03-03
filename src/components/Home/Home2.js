@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import myImg from "../../Assets/avatar.svg";
+import myImg from "../../Assets/avatar.png";
 import Tilt from "react-parallax-tilt";
 
 function Home2() {
@@ -13,17 +13,17 @@ function Home2() {
               LET ME <span className="purple"> INTRODUCE </span> MYSELF
             </h1>
             <p className="home-about-body">
-              I’m a Software Engineer who loves transforming ideas into
+              I’m a Junior Software Engineer who loves transforming ideas into
               reliable, scalable products. Over time, I’ve explored several
               technologies and found my passion in building high-performance
               systems and intuitive user experiences.
               <br />
               <br />
-              I’m proficient in
+              I’m specializing in
               <i>
                 <b className="purple">
                   {" "}
-                  JavaScript, C++, Rust, Node.js, and Java{" "}
+                  JavaScript, Java, and C#{" "}
                 </b>
               </i>
               — and I enjoy working across both backend and frontend stacks.
@@ -33,23 +33,24 @@ function Home2() {
               <i>
                 <b className="purple">
                   {" "}
-                  Web Applications, Blockchain Solutions,{" "}
+                  MERN stack Web Applications,{" "}
                 </b>
               </i>
-              and exploring new ways to bridge on-chain and off-chain systems.
+              with good looking frontend and scalable backend.
               <br />
               <br />
               Whenever possible, I love building projects with
               <b className="purple"> Node.js </b> and modern frameworks like{" "}
               <i>
-                <b className="purple">React.js</b> and{" "}
-                <b className="purple">Next.js</b>.
+                <b className="purple">React.js</b>.
               </i>
+              &nbsp;Contributed to manufacturing software solutions for <b className="purple">Lear Corporation</b> and built AI-driven interactive web applications.
+              Strong foundation in REST APIs, system architecture, and code refactoring, with working experience in Java for enterprise environments.
             </p>
           </Col>
           <Col md={4} className="myAvtar">
             <Tilt>
-              <img src={myImg} className="img-fluid" alt="avatar" />
+              <img  style={{ maxHeight: "350px" }} src={myImg} className="img-fluid" alt="avatar" />
             </Tilt>
           </Col>
         </Row>
