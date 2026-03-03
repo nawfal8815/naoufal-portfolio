@@ -22,6 +22,22 @@ button:focus {
   box-shadow: none !important;
 }
 
+
+/* --------- */
+/*  PDF VIEWER */
+/* --------- */
+
+.pdf-page-wrapper {
+  /* You can move styles here instead of inline */
+  margin: 0 auto 80px auto;     /* top/bottom spacing – adjust as needed */
+  max-width: 1000px;            /* prevent ultra-wide pages on desktop */
+  transition: transform 0.2s;
+}
+
+.pdf-page-wrapper:hover {
+  transform: translateY(-4px);  /* subtle lift on hover – optional */
+}
+
 /* --------- */
 /*  Preloader */
 /* --------- */
