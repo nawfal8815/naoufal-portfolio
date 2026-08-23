@@ -3,38 +3,66 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
+import { VscTools } from "react-icons/vsc";
 
-function ProjectCards(props) {
+function ProjectCard({ title, image, status, description, tags, liveLink, repoLink, liveLabel }) {
   return (
-    <Card className="project-card-view">
-      <Card.Img variant="top" src={props.imgPath} alt="card-img" />
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
-          {props.description}
-        </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
-        {"\n"}
-        {"\n"}
-
-        {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
-
-        {!props.isBlog && props.demoLink && (
-          <Button
-            variant="primary"
-            href={props.demoLink}
-            target="_blank"
-            style={{ marginLeft: "10px" }}
-          >
-            <CgWebsite /> &nbsp;
-            {"Demo"}
-          </Button>
+    <Card className="project-card-v2">
+      <div className="project-card-media">
+        {image ? (
+          <>
+            <div className="project-browser-bar">
+              <span className="project-browser-dot" style={{ background: "#ff5f56" }} />
+              <span className="project-browser-dot" style={{ background: "#ffbd2e" }} />
+              <span className="project-browser-dot" style={{ background: "#27c93f" }} />
+              {liveLabel && <span className="project-browser-url">{liveLabel}</span>}
+            </div>
+            <img src={image} alt={`${title} screenshot`} className="project-card-img" />
+          </>
+        ) : (
+          <div className="project-card-placeholder">
+            <VscTools size={42} />
+            <span>Redesign in progress</span>
+          </div>
         )}
+        <span className={`project-status-badge ${status === "live" ? "is-live" : "is-progress"}`}>
+          {status === "live" ? "Live" : "In Progress"}
+        </span>
+      </div>
+
+      <Card.Body className="project-card-v2-body">
+        <Card.Title>{title}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+
+        <div className="project-tags">
+          {tags.map((tag) => (
+            <span className="project-tag" key={tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="project-card-footer">
+          {liveLink && (
+            <Button variant="primary" href={liveLink} target="_blank" rel="noreferrer">
+              <CgWebsite /> &nbsp;Visit Live
+            </Button>
+          )}
+          {repoLink && (
+            <Button
+              variant="primary"
+              href={repoLink}
+              target="_blank"
+              rel="noreferrer"
+              style={liveLink ? { marginLeft: "10px" } : undefined}
+            >
+              <BsGithub /> &nbsp;GitHub
+            </Button>
+          )}
+        </div>
       </Card.Body>
     </Card>
   );
 }
-export default ProjectCards;
+
+export default ProjectCard;
